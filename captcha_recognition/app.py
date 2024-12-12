@@ -1,7 +1,9 @@
 from flask import Flask
+from flask_cors import CORS
 from utils.orc_util import recognize
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/')
