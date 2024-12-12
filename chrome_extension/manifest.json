@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "图片验证码识别插件",
+  "version": "1.0",
+  "description": "用于识别tap项目登录页的canvas字符验证码",
+  "author": "carolin-violet",
+  "icons": {
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-script.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "permissions": ["webRequest", "webRequestBlocking", "storage"],
+  "homepage_url": "https://github.com/carolin-violet"
+}
