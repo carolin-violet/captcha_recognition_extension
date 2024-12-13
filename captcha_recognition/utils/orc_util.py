@@ -1,9 +1,9 @@
 import ddddocr
 
 
-def recognize(img_bytes):
+def recognize(img_file):
     ocr = ddddocr.DdddOcr()
-    res = ocr.classification(img_bytes)
+    res = ocr.classification(img_file)
     return res
 
 

@@ -20,11 +20,11 @@ function getImg() {
   });
 }
 
-function getCaptchaCode(imgBlob) {
+function getCaptchaCode(formData) {
   const url = "http://127.0.0.1:5000/img_recognition"; // 替换为你的 API 地址
 
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", url);
+  xhr.open("POST", url);
   xhr.onload = function () {
     if (xhr.status >= 200 && xhr.status < 300) {
       const data = JSON.parse(xhr.responseText);
@@ -38,12 +38,15 @@ function getCaptchaCode(imgBlob) {
     console.error("请求错误");
     document.getElementById("response").textContent = "请求错误";
   };
-  xhr.send(imgBlob);
+  xhr.send(formData);
 }
 
 function main() {
-  getImg().then((img) => {
-    getCaptchaCode(img);
+  getImg().then((imgBlob) => {
+    const file = new File([imgBlob], "image.png", { type: imgBlob.type });
+    const formData = new FormData();
+    formData.append("file", file);
+    getCaptchaCode(formData);
   });
 }
 
