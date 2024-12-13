@@ -24,6 +24,15 @@ function writeCode(code) {
   captchaInput.value = code;
 }
 
+// 向input输入框中写入用户名密码
+function writeUserInfo() {
+  const inputList = document.querySelectorAll(".el-input__inner");
+  const accountInput = inputList[0];
+  const inputInput = inputList[1];
+  accountInput.value = "violet";
+  inputInput.value = "Trendy@123";
+}
+
 // api调用
 function getCaptchaCode(formData) {
   const url = "http://127.0.0.1:5000/img_recognition"; // 替换为你的 API 地址
@@ -58,7 +67,13 @@ function recognition() {
 // 监听html文档加载完成
 document.addEventListener("DOMContentLoaded", function () {
   const recognition_button = document.createElement("div");
+  recognition_button.innerText = "填充";
   recognition_button.className = "recognition_button";
   document.body.appendChild(recognition_button);
-  recognition_button.onclick = recognition;
+  recognition_button.onclick = function () {
+    // 填写用户名密码
+    writeUserInfo();
+    // 识别填写验证码
+    recognition();
+  };
 });
