@@ -1,0 +1,10 @@
+.recognition_button {
+  position: fixed;
+  right: 10px;
+  bottom: 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: cadetblue;
+  cursor: pointer;
+}

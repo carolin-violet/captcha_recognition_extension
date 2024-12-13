@@ -1,7 +1,4 @@
-(function () {
-  console.log("这是 simple-chrome-plugin-demo 的content-script！");
-})();
-
+// 获取canvas图片内容
 function getImg() {
   const canvasContainer = document.querySelector(".identityCode");
   const canvas = canvasContainer.querySelector("canvas");
@@ -20,6 +17,14 @@ function getImg() {
   });
 }
 
+// 向input输入框中写入验证码
+function writeCode(code) {
+  const inputList = document.querySelectorAll(".el-input__inner");
+  const captchaInput = inputList[2];
+  captchaInput.value = code;
+}
+
+// api调用
 function getCaptchaCode(formData) {
   const url = "http://127.0.0.1:5000/img_recognition"; // 替换为你的 API 地址
 
@@ -27,9 +32,9 @@ function getCaptchaCode(formData) {
   xhr.open("POST", url);
   xhr.onload = function () {
     if (xhr.status >= 200 && xhr.status < 300) {
-      const data = JSON.parse(xhr.responseText);
       // 处理接收到的数据
-      console.log("数据:", data);
+      console.log("数据:", xhr.responseText);
+      writeCode(xhr.responseText);
     } else {
       console.error("请求失败:", xhr.status);
     }
@@ -41,7 +46,7 @@ function getCaptchaCode(formData) {
   xhr.send(formData);
 }
 
-function main() {
+function recognition() {
   getImg().then((imgBlob) => {
     const file = new File([imgBlob], "image.png", { type: imgBlob.type });
     const formData = new FormData();
@@ -50,6 +55,10 @@ function main() {
   });
 }
 
-setTimeout(() => {
-  main();
-}, 5000);
+// 监听html文档加载完成
+document.addEventListener("DOMContentLoaded", function () {
+  const recognition_button = document.createElement("div");
+  recognition_button.className = "recognition_button";
+  document.body.appendChild(recognition_button);
+  recognition_button.onclick = recognition;
+});
