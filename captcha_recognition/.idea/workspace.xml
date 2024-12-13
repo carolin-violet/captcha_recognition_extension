@@ -68,7 +68,7 @@
       <recent name="D:\study\code\captcha_recognition_extension\captcha_recognition\utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.orc_util">
+  <component name="RunManager" selected="Flask server.Flask (app.py)">
     <configuration name="orc_util" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="captcha_recognition" />
       <option name="ENV_FILES" value="" />
@@ -126,8 +126,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.orc_util" />
         <item itemvalue="Flask server.Flask (app.py)" />
+        <item itemvalue="Python.orc_util" />
       </list>
     </recent_temporary>
   </component>
@@ -148,15 +148,26 @@
       <option name="presentableId" value="Default" />
       <updated>1734011819090</updated>
       <workItem from="1734011821433" duration="6119000" />
-      <workItem from="1734052122235" duration="4099000" />
+      <workItem from="1734052122235" duration="5109000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app.py</url>
+          <line>24</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/captcha_recognition$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1734052745416" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/captcha_recognition$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1734059464521" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/captcha_recognition$orc_util.coverage" NAME="orc_util Coverage Results" MODIFIED="1734058067980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
   </component>
 </project>
