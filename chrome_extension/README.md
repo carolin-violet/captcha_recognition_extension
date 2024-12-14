@@ -1,18 +1,3 @@
----
-title: 验证码识别插件(三)-前端chrome插件开发
-id: b6d917d0-3b59-4b68-a264-1a87de745143
-date: 2024-12-13 17:47:56
-auther: carolin-violet
-cover: /upload/anime_picture/073c83b3882611ebb6edd017c2d2eca2.webp
-excerpt: 参考资料：https//github.com/sxei/chrome-plugin-demo?tab=readme-ov-file 代码目录 |-manifest.json|-content-script.js|-recognition_styles.css|-popup.html|-po
-permalink: /archives/yan-zheng-ma-shi-bie-cha-jian-san--qian-duan-chromecha-jian-kai-fa
-categories:
- - xiang-mu
-tags: 
- - chromecha-jian
- - javascript
----
-
 参考资料：[https://github.com/sxei/chrome-plugin-demo?tab=readme-ov-file](https://github.com/sxei/chrome-plugin-demo?tab=readme-ov-file)
 
 ## 代码目录
@@ -202,3 +187,21 @@ recognition\_styles.css
       color: #fff;
       text-align: center;
     }
+    
+
+## 问题
+
+1.表单校验触发提示用户名和密码不能为空是因为chrome插件只改变了input输入框标签的值，并没有改变vue代码中存储的用户名密码，所以用户名密码还是为空，表单校验是基于vue中存储的用户名和密码来校验的，所以校验不通过。
+
+解决方法 使用 JavaScript 原生事件的输入方式模拟用户输入，使用方法如下:
+
+    // bubbles设置true表示允许冒泡
+    function simulateInput(element, value) {
+      const inputEvent = new Event('input', { bubbles: true });
+      element.value = value;
+      element.dispatchEvent(inputEvent);
+    }
+    
+    // 使用方法
+    simulateInput(document.querySelector('input[name="username"]'), 'your_username');
+    simulateInput(document.querySelector('input[name="password"]'), 'your_password');
