@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73abb601-035a-4b1b-b4d2-979c2a59548d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../chrome_extension.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../chrome_extension.zip" afterDir="false" />
-    </list>
+    <list default="true" id="73abb601-035a-4b1b-b4d2-979c2a59548d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -151,7 +149,7 @@
       <updated>1734011819090</updated>
       <workItem from="1734011821433" duration="6119000" />
       <workItem from="1734052122235" duration="7454000" />
-      <workItem from="1734080044923" duration="2633000" />
+      <workItem from="1734080044923" duration="3238000" />
     </task>
     <servers />
   </component>
