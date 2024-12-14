@@ -56,10 +56,7 @@ function recognition() {
     getCaptchaCode(formData).then((code) => {
       userInfoObj.code = code;
       // 自动填入用户信息
-      // writeUserInfo();
-
-      // 生成复制面板
-      generateDialog();
+      writeUserInfo();
     });
   });
 }
@@ -77,41 +74,16 @@ document.addEventListener("DOMContentLoaded", function () {
 function writeUserInfo() {
   const inputList = document.querySelectorAll(".el-input__inner");
   const accountInput = inputList[0];
-  const inputInput = inputList[1];
+  const passwordInput = inputList[1];
   const captchaInput = inputList[2];
-  accountInput.value = userInfoObj.account;
-  inputInput.value = userInfoObj.password;
-  captchaInput.value = userInfoObj.code;
+  simulateInput(accountInput, userInfoObj.account);
+  simulateInput(passwordInput, userInfoObj.password);
+  simulateInput(captchaInput, userInfoObj.code);
 }
 
-// 手动弹出复制粘贴弹窗
-function generateDialog() {
-  const copyBoard = document.createElement("div");
-  copyBoard.className = "violet_recognition_copy_board";
-  copyBoard.style.display = "block";
-
-  const accountContainer = document.createElement("div");
-  accountContainer.className = "copy-account";
-  accountContainer.innerText = userInfoObj.account;
-  copyBoard.appendChild(accountContainer);
-
-  const passwordContainer = document.createElement("div");
-  passwordContainer.className = "copy-password";
-  passwordContainer.innerText = userInfoObj.password;
-  copyBoard.appendChild(passwordContainer);
-
-  const codeContainer = document.createElement("div");
-  codeContainer.className = "copy-code";
-  codeContainer.innerText = userInfoObj.code;
-  copyBoard.appendChild(codeContainer);
-
-  const closeContainer = document.createElement("div");
-  closeContainer.className = "close";
-  closeContainer.innerText = "关闭";
-  copyBoard.appendChild(closeContainer);
-  closeContainer.onclick = function () {
-    copyBoard.style.display = "none";
-  };
-
-  document.body.appendChild(copyBoard);
+// 模拟输入
+function simulateInput(element, value) {
+  const inputEvent = new Event("input", { bubbles: true });
+  element.value = value;
+  element.dispatchEvent(inputEvent);
 }
