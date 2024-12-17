@@ -1,8 +1,21 @@
+// 用户信息
 const userInfoObj = {
   account: "violet",
   password: "Trendy@123",
   code: "",
 };
+
+// 填充按钮
+let violet_recognition_button;
+
+// 需要展示的站点
+const whiteList = [
+  "61.160.201.225:31085",
+  "localhost:9000",
+  "172.21.6.123:30647",
+  "172.21.6.123:32599",
+  "172.21.6.123:31397",
+];
 
 // 获取canvas图片内容
 function getImg() {
@@ -61,15 +74,6 @@ function recognition() {
   });
 }
 
-// 监听html文档加载完成
-document.addEventListener("DOMContentLoaded", function () {
-  const violet_recognition_button = document.createElement("div");
-  violet_recognition_button.innerText = "填充";
-  violet_recognition_button.className = "violet_recognition_button";
-  document.body.appendChild(violet_recognition_button);
-  violet_recognition_button.onclick = recognition;
-});
-
 // 自动向input输入框中写入用户名密码验证码
 function writeUserInfo() {
   const inputList = document.querySelectorAll(".el-input__inner");
@@ -87,3 +91,35 @@ function simulateInput(element, value) {
   element.value = value;
   element.dispatchEvent(inputEvent);
 }
+
+// 判断是否为登录页(暂时根据href判断可能会出现问题)
+function handleDisplayButton() {
+  if (window.location.href.includes("/login")) {
+    violet_recognition_button.style.display = "block";
+  } else {
+    violet_recognition_button.style.display = "none";
+  }
+}
+
+// 监听html文档加载完成
+document.addEventListener("DOMContentLoaded", function () {
+  if (!whiteList.includes(this.location.host)) return;
+
+  violet_recognition_button = document.createElement("div");
+  for (let i = 0; i < 4; i++) {
+    const div = document.createElement("div");
+    violet_recognition_button.appendChild(div);
+  }
+  violet_recognition_button.appendChild(document.createTextNode("填充信息"));
+  violet_recognition_button.className = "violet_recognition_button";
+  document.body.appendChild(violet_recognition_button);
+  violet_recognition_button.onclick = recognition;
+  if (window.location.href.includes("/login")) {
+    violet_recognition_button.style.display = "block";
+  } else {
+    violet_recognition_button.style.display = "none";
+  }
+  setInterval(() => {
+    handleDisplayButton();
+  }, 1000);
+});

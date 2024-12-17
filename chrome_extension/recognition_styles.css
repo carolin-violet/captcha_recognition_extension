@@ -1,51 +1,99 @@
 /* 
   点击按钮
 */
+
 .violet_recognition_button {
   position: fixed;
-  right: 10px;
-  bottom: 40px;
+  right: 20px;
+  bottom: 60px;
   height: 40px;
-  width: 40px;
-  border-radius: 100%;
-  text-align: center;
-  line-height: 40px;
+  width: 80px;
+  padding: 12px 8px;
+  color: #03e9f4;
+  font-size: 12px;
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 4px;
   cursor: pointer;
-
-  background: #ecd300;
-  background: radial-gradient(hsl(54, 100%, 50%), hsl(54, 100%, 40%));
-  font-size: 14px;
-  text-shadow: 0 -1px 0 #c3af07;
-  color: white;
-  border: 1px solid hsl(54, 100%, 20%);
-  z-index: 4;
-  outline: none;
-  box-shadow: inset 0 1px 0 hsl(54, 100%, 50%), 0 2px 0 hsl(54, 100%, 20%),
-    0 3px 0 hsl(54, 100%, 18%), 0 4px 0 hsl(54, 100%, 16%),
-    0 5px 0 hsl(54, 100%, 14%), 0 6px 0 hsl(54, 100%, 12%),
-    0 7px 0 hsl(54, 100%, 10%), 0 8px 0 hsl(54, 100%, 8%),
-    0 9px 0 hsl(54, 100%, 6%);
+  overflow: hidden;
 }
-
-.violet_recognition_button:active {
-  box-shadow: inset 0 1px 0 hsl(54, 100%, 50%), 0 2px 0 hsl(54, 100%, 16%),
-    0 3px 0 hsl(54, 100%, 14%), 0 4px 0 hsl(54, 100%, 12%),
-    0 5px 0 hsl(54, 100%, 10%), 0 6px 0 hsl(54, 100%, 8%),
-    0 7px 0 hsl(54, 100%, 6%);
+.violet_recognition_button:hover {
+  background-color: #03e9f4;
+  color: #050801;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+    0 0 200px #03e9f4;
 }
-
-.violet_recognition_copy_board {
-  position: fixed;
-  top: 100px;
-  left: 100px;
-  width: 100px;
-  height: 80px;
-  display: none;
-  background: #fff;
+.violet_recognition_button div {
+  position: absolute;
 }
-
-.violet_recognition_copy_board > div {
-  background-color: #666;
-  color: #fff;
-  text-align: center;
+.violet_recognition_button div:nth-child(1) {
+  width: 100%;
+  height: 2px;
+  top: 0;
+  left: -100%;
+  background: linear-gradient(to right, transparent, #03e9f4);
+  animation: animate1 1s linear infinite;
+}
+.violet_recognition_button div:nth-child(2) {
+  width: 2px;
+  height: 100%;
+  top: -100%;
+  right: 0;
+  background: linear-gradient(to bottom, transparent, #03e9f4);
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+.violet_recognition_button div:nth-child(3) {
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  right: -100%;
+  background: linear-gradient(to left, transparent, #03e9f4);
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+.violet_recognition_button div:nth-child(4) {
+  width: 2px;
+  height: 100%;
+  bottom: -100%;
+  left: 0;
+  background: linear-gradient(to top, transparent, #03e9f4);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+@keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+@keyframes animate2 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+@keyframes animate3 {
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+@keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,
+  100% {
+    bottom: 100%;
+  }
 }
